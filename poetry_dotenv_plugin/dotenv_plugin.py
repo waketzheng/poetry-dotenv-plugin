@@ -29,7 +29,7 @@ class DotenvPlugin(ApplicationPlugin):
 
         path = POETRY_DOTENV_LOCATION or dotenv.find_dotenv(usecwd=True)
         POETRY_DOTENV_DONT_OVERRIDE = os.environ.get("POETRY_DOTENV_DONT_OVERRIDE", "")
-        DOTENV_OVERRIDE = not POETRY_DOTENV_DONT_OVERRIDE.lower() in (
+        DOTENV_OVERRIDE = POETRY_DOTENV_DONT_OVERRIDE.lower() not in (
             "true",
             "1",
         )
